@@ -43,8 +43,9 @@ const AuthForm = ({ type }: { type: string }) => {
       try {
         if (type === 'sign-up') {
           const newUser = await signUp(data);
-
+          if(newUser) router.push('/sign-in')
           setUser(newUser);
+
         }
         //sign in with appWrite
         if(type === 'sign-in') {
@@ -52,7 +53,7 @@ const AuthForm = ({ type }: { type: string }) => {
             email: data.email,
             password: data.password,
           })
-
+          console.log(response);
           if(response) router.push('/')
         }
 
