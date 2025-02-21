@@ -1,14 +1,16 @@
 
 import MobileNav from '@/components/MobileNav'
 import Sidebar from '@/components/Sidebar'
+import { getLoggedInUser } from '@/lib/actions/user.actions'
 import Image from 'next/image'
 import React from 'react'
 
-const layout = ({ children }:
+
+const layout = async({ children }:
     { children: React.ReactNode }) =>
 {
 
-  const loggedInUser = {firstName: 'Ryan', lastName:'CHL Cooray'}
+  const loggedInUser = await getLoggedInUser();
   return (
 
     <main className="flex h-screen w-full font-inter">
